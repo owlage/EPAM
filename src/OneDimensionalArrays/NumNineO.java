@@ -3,7 +3,7 @@ package OneDimensionalArrays;
 //9. В массиве целых чисел с количеством элементов n найти наиболее часто встречающееся число.
 // Если таких чисел несколько, то определить наименьшее из них.
 
-public class NumNineO<minNumber> {
+public class NumNineO{
 
     static void rand20(int[] a) {
         for (int i = 0; i < a.length; i++) {
@@ -19,8 +19,8 @@ public class NumNineO<minNumber> {
 
         for (int i = 0; i < a.length; i++) {
             int z = 0;
-            for (int j = 0; j < a.length; j++) {
-                if (a[i] == a[j]) {
+            for (int k : a) {
+                if (a[i] == k) {
                     arr[i] = z++;
                 }
             }
