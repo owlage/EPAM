@@ -24,6 +24,7 @@ public class NumberSevenC {
         }
     }
 
+
     public static void numberEnter(int a, int b) {
         ArrayList<Integer> array = new ArrayList<Integer>();
         ArrayList<Integer> array2 = new ArrayList<Integer>();
@@ -39,9 +40,9 @@ public class NumberSevenC {
             b /= 10;
             j++;
         }
-        for (int x = array.size()-1; x >= 0; x--) {
-            for (int y = array2.size()-1; y >= 0; y--) {
-                if( array.get(x) == array2.get(y)){
+        for (int x = array.size() - 1; x >= 0; x--) {
+            for (int y = array2.size() - 1; y >= 0; y--) {
+                if (array.get(x) == array2.get(y)) {
                     System.out.print(array.get(x) + ";");
                     array.remove(x);
                     array2.remove(y);
@@ -54,6 +55,6 @@ public class NumberSevenC {
     public static void main(String[] args) throws Exception {
 
         number();
-        numberEnter(a , b);
+        numberEnter(a, b);
     }
 }

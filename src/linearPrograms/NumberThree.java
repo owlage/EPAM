@@ -14,6 +14,7 @@ public class NumberThree {
         while (bool) {
             double x = sc.nextDouble();
             double y = sc.nextDouble();
+
             z = (Math.sin(x) + Math.cos(y)) / (Math.cos(x) - Math.cos(y)) * Math.tan(x * y);
             if (Double.isInfinite(z)) { // если два одинаковых числа, возврат к оператору while()
                 continue;
@@ -22,5 +23,9 @@ public class NumberThree {
                 System.out.println(z);
             }
         }
+
+
     }
 }
+
+
