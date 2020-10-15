@@ -2,7 +2,7 @@ package OneDimensionalArrays;
 
 import java.util.Scanner;
 
-public class DevUtil {
+class DevUtil {
 
     public static int n;
     static Scanner sc = new Scanner(System.in);
@@ -26,10 +26,11 @@ public class DevUtil {
         System.out.println();
     }
 
-    static void output (int []a){
+    static void output(int[] a) {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
         }
+        System.out.println();
     }
 
 
