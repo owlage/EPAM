@@ -6,23 +6,33 @@ import java.util.Scanner;
 
 public class NumberOne {
     public static void number() {
+        int a = 0, b = 0, c = 0;
+        double z = 0;
         Scanner sc = new Scanner(System.in);
-        double z;
-        try {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
-            int c = sc.nextInt();
-            z = (((double) a - 3) * (double) b / 2) + (double) c;
-            System.out.println(z);
-        } catch (Exception e) {
+        System.out.println("Введите 3 целых числа через enter");
+        if (sc.hasNextInt()) {
+            a = sc.nextInt();
+            if (sc.hasNextInt()) {
+                b = sc.nextInt();
+                if (sc.hasNextInt()) {
+                    c = sc.nextInt();
+                    z = (((double) a - 3) * (double) b / 2) + (double) c;
+                    System.out.println("Итог: " + z);
+                } else {
+                    System.out.println("Не допустимое значение");
+                    number();
+                }
+            } else {
+                System.out.println("Не допустимое значение");
+                number();
+            }
+        } else {
             System.out.println("Не допустимое значение");
-            System.out.println("Попробуй ещё");
             number();
         }
-
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         number();
 
