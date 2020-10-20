@@ -8,17 +8,28 @@ import java.util.Scanner;
 
 public class NumberFour {
 
+    static double d;
+
     public static double Number (double d){
         d = (d * 1000) % 1000 + (int) d / 1000.0;
         return d;
     }
 
-    public static void main(String[] args) {
+    static void numer(){
         Scanner sc = new Scanner(System.in);
-        double d = sc.nextDouble();
+        System.out.println("Введите дробное число, через запятую");
+        if(sc.hasNextDouble()){
+            d = sc.nextDouble();
+
+        } else {
+            System.out.println("Не допустимый символ.");
+            numer();
+        }
+    }
+
+    public static void main(String[] args) {
+        numer();
         System.out.println(d);
         System.out.println(Number(d));
     }
-
-
 }
