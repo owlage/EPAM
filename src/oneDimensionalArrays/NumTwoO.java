@@ -1,7 +1,9 @@
-package OneDimensionalArrays;
+package oneDimensionalArrays;
 
 //2. Дана последовательность действительных чисел а1 ,а2 ,..., ап. Заменить все ее члены, большие данного Z,
 // этим числом. Подсчитать количество замен.
+
+import java.util.Scanner;
 
 public class NumTwoO {
 
@@ -21,10 +23,20 @@ public class NumTwoO {
 
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         DevUtil.arrLength();
         int[] array1 = new int[DevUtil.n];
         System.out.println("Введите число");
-        int z = NumOneO.sc.nextInt();
+        int z = 0;
+        boolean bool = true;
+        while (bool){
+            if(sc.hasNextInt()){
+                z = sc.nextInt();
+                bool = false;
+            } else {
+                System.out.println("Введите целое не отрицательное число!");
+            }
+        }
         DevUtil.arrayPull(array1);
         summ(array1, z);
 

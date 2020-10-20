@@ -12,14 +12,20 @@ public class NumberSevenC {
     static int b;
 
     static void number() {
-        try {
-            Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите 2 целых числа через enter");
+        if (sc.hasNextInt()) {
             a = sc.nextInt();
-            b = sc.nextInt();
-            num = (int) Math.log10(a) + 1;
-            num = (int) Math.log10(b) + 1;
-        } catch (Exception e) {
-            System.out.println("Вы ввели не целое число");
+            if (sc.hasNextInt()) {
+                b = sc.nextInt();
+                //num = (int) Math.log10(a) + 1;
+                //num = (int) Math.log10(b) + 1;
+            } else {
+                System.out.println("Введите целые числа!");
+                number();
+            }
+        } else {
+            System.out.println("Введите целые числа!");
             number();
         }
     }

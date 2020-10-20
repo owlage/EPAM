@@ -7,24 +7,34 @@ import java.util.Scanner;
 public class NumberThreeB {
 
     static double x1, y1, x2, y2, x3, y3;
+    static double a;
 
-    static void scan(double a, double b){
-        System.out.println("Введите координаты точки");
+    static double scan() {
         Scanner sc = new Scanner(System.in);
-        a = sc.nextDouble();
-        b = sc.nextDouble();
+        if (sc.hasNextDouble()) {
+            a = sc.nextDouble();
+        } else {
+            System.out.println("Введите число");
+            scan();
+        }
+        return a;
     }
 
     public static void main(String[] args) {
 
-        scan(x1, y1);
-        scan(x2, y2);
-        scan(x3, y3);
+        System.out.println("Введите координаты точки №1");
+        x1 = scan();
+        y2 = scan();
+        System.out.println("Введите координаты точки №2");
+        x2 = scan();
+        y2 = scan();
+        System.out.println("Введите координаты точки №3");
+        x3 = scan();
+        y3 = scan();
 
-        if ((x1 - x3) / (x2 - x3) == (y1 - y3) / (y2 - y3)){
+        if ((x1 - x3) / (x2 - x3) == (y1 - y3) / (y2 - y3)) {
             System.out.println("Точки находятся на одной прямой");
-        }
-        else {
+        } else {
             System.out.println("Точки не лежат на одной прямой");
         }
     }

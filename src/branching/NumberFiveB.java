@@ -2,15 +2,12 @@ package branching;
 
 //6. Вычислить значение функции:
 
-import java.util.Scanner;
-
 public class NumberFiveB {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Введите значение х");
         double a;
-        double x = sc.nextDouble();
+        double x = NumberFourB.brick();
         if(x <= 3){
             a = x * x - 3 * x + 9;
         }

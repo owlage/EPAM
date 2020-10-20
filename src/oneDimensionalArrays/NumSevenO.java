@@ -1,4 +1,4 @@
-package OneDimensionalArrays;
+package oneDimensionalArrays;
 
 //7. Даны действительные числа а1 ,а2 ,..., аn. Найти
 

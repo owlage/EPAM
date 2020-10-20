@@ -8,36 +8,43 @@ import java.util.Scanner;
 
 public class NumberFourB {
 
-    public static void main(String[] args) {
+    static double t, m, x, y, z;
+    static double a;
+
+    static double brick() {
         Scanner sc = new Scanner(System.in);
-        boolean bool = true;
-        while (bool) {
-            System.out.println("Введите разверы отверстия");
-            double a = sc.nextDouble();
-            double b = sc.nextDouble();
-            System.out.println("Введите размеры кирпича");
-            double x = sc.nextDouble();
-            double y = sc.nextDouble();
-            double z = sc.nextDouble();
-            if (a != 0 & b != 0) {
-                if (x != 0 & y != 0 & z != 0) {
-                    if (a >= x && b >= y || a >= y && b >= x || a >= x && b >= z || a >= z && b >= x ||
-                            a >= y && b >= z || a >= z && b >= y) {
-                        System.out.println("Кирпичь пройдет");
-                    } else {
-                        System.out.println("Кирпичь не пройдет");
-                    }
-                    bool = false;
-                } else {
-                    System.out.println("Это не кирпичь");
-                    continue;
-                }
-            } else {
-                System.out.println("Это не отверстие");
-                continue;
+        if (sc.hasNextDouble()) {
+            a = sc.nextDouble();
+            if (a == 0) {
+                System.out.println("не правильно задан размер");
+                brick();
             }
+        } else {
+            System.out.println("Введите число");
+            brick();
         }
+        return a;
     }
 
+    public static void main(String[] args) {
+        System.out.println("Введите разверы отверстия");
+        System.out.println("Длинна");
+        t = brick();
+        System.out.println("Ширина");
+        m = brick();
+        System.out.println("Введите размеры кирпича");
+        System.out.println("Длинна");
+        x = brick();
+        System.out.println("Ширина");
+        y = brick();
+        System.out.println("Глубина");
+        z = brick();
+        if (t >= x && m >= y || t >= y && m >= x || t >= x && m >= z || t >= z && m >= x ||
+                t >= y && m >= z || t >= z && m >= y) {
+            System.out.println("Кирпичь пройдет");
+        } else {
+            System.out.println("Кирпичь не пройдет");
+        }
+    }
 }
 

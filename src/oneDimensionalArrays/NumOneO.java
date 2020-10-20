@@ -1,4 +1,4 @@
-package OneDimensionalArrays;
+package oneDimensionalArrays;
 
 //1. В массив A [N] занесены натуральные числа. Найти сумму тех элементов, которые кратны данному К.
 
@@ -7,12 +7,23 @@ import java.util.Scanner;
 public class NumOneO {
 
     private static int k;
-    static Scanner sc = new Scanner(System.in);
 
     static void number() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите число кратность которого нужно найти");
-        k = sc.nextInt();
+        System.out.println("Введите число кратность которого нужно найти не равное нуль");
+        boolean bool = true;
+        while (bool)
+            if (sc.hasNextInt()) {
+                k = sc.nextInt();
+                bool = false;
+                if( k == 0){
+                    System.out.println("Не нуль!");
+                    number();
+                }
+            } else {
+                System.out.println("Введите целое число!");
+                number();
+            }
     }
 
     static void multiplicity(int[] a) {

@@ -6,11 +6,29 @@ package cycles;
 import java.util.Scanner;
 
 public class NumberSixC {
+    static int a, b;
 
-    public static void dividers ( int a, int b){
-        for ( int i = a; i <= b; i++ ){
+    static void numbers() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите 2 целых числа через enter");
+        if (sc.hasNextInt()) {
+            a = sc.nextInt();
+            if (sc.hasNextInt()) {
+                b = sc.nextInt();
+            } else {
+                System.out.println("Введите целые числа!");
+                numbers();
+            }
+        } else {
+            System.out.println("Введите целые числа!");
+            numbers();
+        }
+    }
+
+    public static void dividers(int a, int b) {
+        for (int i = a; i <= b; i++) {
             System.out.print(" У числа " + i + " делители: ");
-            for ( int j = 2; j <= i; j++ ){
+            for (int j = 2; j <= i; j++) {
                 if (i != j) {
                     if (i % j == 0) {
                         System.out.print(j + " ");
@@ -22,15 +40,17 @@ public class NumberSixC {
     }
 
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        int m = sc.nextInt();
-        int n = sc.nextInt();
-        if(m < n) {
-            dividers(m, n);
-        }
-        if(m > n){
-            dividers(n, m);
+        numbers();
+        boolean bool = true;
+        while (bool) {
+            if (a < b) {
+                dividers(a, b);
+                bool = false;
+            }
+            if (a > b) {
+                System.out.println("Нужно задать промежуток, первое число не может быть больше второго!");
+                numbers();
+            }
         }
     }
 }

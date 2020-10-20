@@ -8,18 +8,37 @@ import java.util.Scanner;
 
 public class NumberOneB {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите 2 угла");
-        double a = sc.nextDouble();
-        double b = sc.nextDouble();
+    static double a, b;
 
-        if(a + b <= 180){
+    static void twoDouble() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите 2 угла через enter, угол не может быть меньше чем 1 и больше чем 179!");
+        if (sc.hasNextDouble()) {
+            a = sc.nextDouble();
+            if (sc.hasNextDouble()) {
+                b = sc.nextDouble();
+                if (a < 1 || b < 1 || a >= 180 || b >= 180) {
+                    twoDouble();
+                }
+            } else {
+                System.out.println("Введите любое число от 1 до 179");
+                twoDouble();
+            }
+        } else {
+            System.out.println("Введите любое число от 1 до 179");
+            twoDouble();
+        }
+    }
+
+
+    public static void main(String[] args) {
+        twoDouble();
+        if (a + b <= 180) {
             System.out.println("Треугольник существует");
-            if(a == 90 && b == 90 && (a + b) == 90){
+            if (a == 90 || b == 90 || (a + b) == 90) {
                 System.out.println("Треугольник прямоугольный");
             }
-        }else {
+        } else {
             System.out.println("Треугольника не существует");
         }
     }
