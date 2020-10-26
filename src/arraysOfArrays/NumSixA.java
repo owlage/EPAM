@@ -4,14 +4,14 @@ package arraysOfArrays;
 
 public class NumSixA {
 
-    static void newArray6(int[][] a) {
+    static void newArray6(int[][] array) {
         int b = 1;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                if (i <= j && j <= a.length - i || i >= j && j >= a.length - i - 1) {
-                    a[i][j] = 1;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (i <= j && j <= array.length - i || i >= j && j >= array.length - i - 1) {
+                    array[i][j] = 1;
                 } else {
-                    a[i][j] = 0;
+                    array[i][j] = 0;
                 }
             }
         }
@@ -19,7 +19,7 @@ public class NumSixA {
 
     public static void main(String[] args) {
         NumFourA.newArrayCubeLength();
-        int[][] array6 = new int[DevUtilArray.n][DevUtilArray.n];
+        int[][] array6 = new int[DevUtilArray.line][DevUtilArray.line];
         newArray6(array6);
         DevUtilArray.arraysShow(array6);
     }

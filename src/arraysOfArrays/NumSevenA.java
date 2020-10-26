@@ -6,12 +6,12 @@ package arraysOfArrays;
 
 public class NumSevenA {
 
-    static int matrixForm(double[][] a) {
+    static int matrixForm(double[][] array) {
         int sum = 0;
-        for (int i = 1; i < a.length - 1; i++) {
-            for (int j = 1; j < a[i].length - 1; j++) {
-                a[i][j] = Math.sin((i * i - j * j) / DevUtilArray.n);
-                if(a[i][j] > 0.0){
+        for (int i = 1; i < array.length - 1; i++) {
+            for (int j = 1; j < array[i].length - 1; j++) {
+                array[i][j] = Math.sin((i * i - j * j) / DevUtilArray.line);
+                if (array[i][j] > 0.0) { //подсчёт положительных элементов
                     sum++;
                 }
             }
@@ -19,18 +19,18 @@ public class NumSevenA {
         return sum;
     }
 
-    static void showDoubleArray(double[][] d) {
-        for (int i = 0; i < d.length; i++) {
-            for (int j = 0; j < d[i].length; j++) {
-                System.out.print(d[i][j] + " ");
+    static void showDoubleArray(double[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
             }
             System.out.println();
         }
     }
 
     public static void main(String[] args) {
-        NumFourA.newArrayCubeLength();
-        double[][] array7 = new double[DevUtilArray.n][DevUtilArray.n];
+        DevUtilArray.arrayCube();
+        double[][] array7 = new double[DevUtilArray.line][DevUtilArray.line];
         System.out.println("Кло-во положительных элементов: " + matrixForm(array7));
         showDoubleArray(array7);
 

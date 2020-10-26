@@ -4,15 +4,15 @@ package arraysOfArrays;
 
 public class NumTwoA {
 
-    static void diagonal(int[][] a) {
-        int x = a.length - 1;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
+    static void diagonal(int[][] array) {
+        int x = array.length - 1; // последний елемент строки, в "х" для убобства
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
                 if (i == j || j == x) {
-                    if (a[i][j] < 10) {
-                        System.out.print(a[i][j] + "  ");
+                    if (array[i][j] < 10) {
+                        System.out.print(array[i][j] + "  ");
                     } else {
-                        System.out.print(a[i][j] + " ");
+                        System.out.print(array[i][j] + " ");
                     }
                 } else {
                     System.out.print("   ");
@@ -27,8 +27,8 @@ public class NumTwoA {
 
 
     public static void main(String[] args) {
-        NumFourA.newArrayCubeLength();
-        int[][] array2 = new int[DevUtilArray.n][DevUtilArray.n];
+        DevUtilArray.arrayCube();
+        int[][] array2 = new int[DevUtilArray.line][DevUtilArray.line];
         DevUtilArray.arraysPull(array2);
         DevUtilArray.arraysShow(array2);
         diagonal(array2);

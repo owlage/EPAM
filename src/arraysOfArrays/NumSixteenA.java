@@ -5,6 +5,10 @@ package arraysOfArrays;
 такой квадрат.
  */
 
+/*
+
+ */
+
 import java.util.Scanner;
 
 public class NumSixteenA {
@@ -13,8 +17,8 @@ public class NumSixteenA {
         System.out.println("Введите число для создания массива:");
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextInt()) {
-            DevUtilArray.n = sc.nextInt();
-            if (DevUtilArray.n < 2) {
+            DevUtilArray.line = sc.nextInt();
+            if (DevUtilArray.line < 2) {
                 magicCube();
             }
         } else {
@@ -25,13 +29,13 @@ public class NumSixteenA {
 
     public static void main(String[] args) {
         magicCube();
-        int[][] magicSquare = new int[DevUtilArray.n][DevUtilArray.n];
+        int[][] magicSquare = new int[DevUtilArray.line][DevUtilArray.line];
         int number = 1;
         int row = 0;
-        int column = DevUtilArray.n / 2;
+        int column = DevUtilArray.line / 2;
         int curr_row;
         int curr_col;
-        while (number <= DevUtilArray.n * DevUtilArray.n) {
+        while (number <= DevUtilArray.line * DevUtilArray.line) {
             magicSquare[row][column] = number;
             number++;
             curr_row = row;
@@ -39,16 +43,16 @@ public class NumSixteenA {
             row -= 1;
             column += 1;
             if (row == -1) {
-                row = DevUtilArray.n - 1;
+                row = DevUtilArray.line - 1;
             }
-            if (column == DevUtilArray.n) {
+            if (column == DevUtilArray.line) {
                 column = 0;
             }
             if (magicSquare[row][column] != 0) {
                 row = curr_row + 1;
                 column = curr_col;
                 if (row == -1) {
-                    row = DevUtilArray.n - 1;
+                    row = DevUtilArray.line - 1;
                 }
             }
         }

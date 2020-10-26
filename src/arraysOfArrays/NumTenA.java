@@ -6,30 +6,31 @@ package arraysOfArrays;
 
 public class NumTenA {
 
-    static void minusArraysPull(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                a[i][j] = (int) (Math.random() * 100 - 50);
+    static void minusArraysPull(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = (int) (Math.random() * 100 - 50);
             }
         }
     }
 
-    static void arraysShowTen(int[][] a) {
+    //отображение массива, переписал т.к. работаем с отрицательными числами, вывод ровной матрицы
+    static void arraysShowTen(int[][] array) {
         System.out.println("Массив:");
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                if (a[i][j] >= 0) {
-                    if (a[i][j] < 10) {
-                        System.out.print("  " + a[i][j] + "  ");
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] >= 0) {
+                    if (array[i][j] < 10) {
+                        System.out.print("  " + array[i][j] + "  ");
                     } else {
-                        System.out.print(" " + a[i][j] + "  ");
+                        System.out.print(" " + array[i][j] + "  ");
                     }
                 }
-                if (a[i][j] < 0) {
-                    if (a[i][j] > -10) {
-                        System.out.print(" " + a[i][j] + "  ");
+                if (array[i][j] < 0) {
+                    if (array[i][j] > -10) {
+                        System.out.print(" " + array[i][j] + "  ");
                     } else {
-                        System.out.print(a[i][j] + "  ");
+                        System.out.print(array[i][j] + "  ");
                     }
                 }
             }
@@ -37,21 +38,21 @@ public class NumTenA {
         }
     }
 
-
-    static void diagonalArraysPlus(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                if (a[i][j] >= 0 && i == j) {
-                    if (a[i][j] < 10) {
-                        System.out.print("  " + a[i][j] + "  ");
+    //положительные элементы главной диагонали
+    static void diagonalArraysPlus(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] >= 0 && i == j) {
+                    if (array[i][j] < 10) {
+                        System.out.print("  " + array[i][j] + "  ");
                     } else {
-                        System.out.print(" " + a[i][j] + "  ");
+                        System.out.print(" " + array[i][j] + "  ");
                     }
                 }
-                if (a[i][j] >= 0 && i != j) {
+                if (array[i][j] >= 0 && i != j) {
                     System.out.print("     ");
                 }
-                if (a[i][j] < 0) {
+                if (array[i][j] < 0) {
                     System.out.print("     ");
                 }
             }
@@ -61,11 +62,11 @@ public class NumTenA {
 
 
     public static void main(String[] args) {
-        NumFourA.newArrayCubeLength();
-        int[][] array10 = new int[DevUtilArray.n][DevUtilArray.n];
-        minusArraysPull(array10);
-        arraysShowTen(array10);
-        System.out.println();
+        DevUtilArray.arrayCube();
+        int[][] array10 = new int[DevUtilArray.line][DevUtilArray.line];
+        minusArraysPull(array10);//заполняем матрицу рандом числами от -50 до 50
+        arraysShowTen(array10);//вывод массива на экран
+        System.out.println("положительные элементы главной диагонали:");
         diagonalArraysPlus(array10);
     }
 }

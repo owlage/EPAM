@@ -9,7 +9,6 @@ public class NumberTwo {
     static double a, b, c;
 
     public static void number() {
-        double z = 0;
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите 3 числа через enter");
         if (sc.hasNextDouble()) {

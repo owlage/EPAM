@@ -37,20 +37,21 @@ public class NumTwelveA {
     }
 */
     // отсортированные строки
-    static void sortArraysLineDescending(int[][] a) {
+    static void sortArraysLineDescending(int[][] array) {
         System.out.println("Строки по возрастанию");
-        int[] arrayTwo = new int[DevUtilArray.d];
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                arrayTwo[j] = a[i][j];
-                if (j == a[i].length - 1) {
+        //создаем массив длинной равной длине столбика,в нём будем сортировать каждую строку
+        int[] arrayTwo = new int[DevUtilArray.column];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                arrayTwo[j] = array[i][j];//в одномерный массив записываем значения из строки двумерного массива
+                if (j == array[i].length - 1) {//доходим до конца строки и сортируем массив
                     Arrays.sort(arrayTwo);
-                    for (int k = 0; k < a[i].length; k++) {
-                        a[i][k] = arrayTwo[k];
-                        if (a[i][k] < 10) {
-                            System.out.print(a[i][k] + "  ");
+                    for (int k = 0; k < array[i].length; k++) {//перезаписываем отсортированный массив в строку двумер
+                        array[i][k] = arrayTwo[k];
+                        if (array[i][k] < 10) {
+                            System.out.print(array[i][k] + "  ");
                         } else {
-                            System.out.print(a[i][k] + " ");
+                            System.out.print(array[i][k] + " ");
                         }
                     }
                 }
@@ -59,22 +60,24 @@ public class NumTwelveA {
         }
     }
 
-    static void sortArraysLineAscending(int[][] a) {
+    // отсортированные строки
+    static void sortArraysLineAscending(int[][] array) {
         System.out.println("Строки убыванию");
-        int index = 0;
-        int[] arrayTwo = new int[DevUtilArray.d];
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                arrayTwo[j] = a[i][j];
+        int index = 0;//счётчик длинны строки в двумерном массиве, потом будем использовать в качестве индекса массива
+        //создаем массив длинной равной длине столбика,в нём будем сортировать каждую строку
+        int[] arrayTwo = new int[DevUtilArray.column];
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                arrayTwo[j] = array[i][j];
                 ++index;
-                if (j == a[i].length - 1) {
+                if (j == array[i].length - 1) {
                     Arrays.sort(arrayTwo);
-                    for (int k = 0; k < a[i].length; k++) {
-                        a[i][k] = arrayTwo[--index];
-                        if (a[i][k] < 10) {
-                            System.out.print(a[i][k] + "  ");
+                    for (int k = 0; k < array[i].length; k++) {//перезаписываем отсортированный массив в строку двумер
+                        array[i][k] = arrayTwo[--index];
+                        if (array[i][k] < 10) {//если цифра одна то добавляем пробел, для красоты вывода
+                            System.out.print(array[i][k] + "  ");
                         } else {
-                            System.out.print(a[i][k] + " ");
+                            System.out.print(array[i][k] + " ");
                         }
                     }
                 }
@@ -86,12 +89,12 @@ public class NumTwelveA {
 
     public static void main(String[] args) {
         DevUtilArray.arraysLength();
-        int[][] array12 = new int[DevUtilArray.n][DevUtilArray.d];
-        DevUtilArray.arraysPull(array12);
-        DevUtilArray.arraysShow(array12);
+        int[][] array12 = new int[DevUtilArray.line][DevUtilArray.column];
+        DevUtilArray.arraysPull(array12);//заполняем массив
+        DevUtilArray.arraysShow(array12);//отображаем массив
         System.out.println();
         // sortArrays(array12); //сортировка матрицы
-        sortArraysLineDescending(array12);
-        sortArraysLineAscending(array12);
+        sortArraysLineDescending(array12);//сортировка строк по убыванию
+        sortArraysLineAscending(array12);//сортировка строк по возрастанию
     }
 }

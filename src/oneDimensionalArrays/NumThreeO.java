@@ -5,51 +5,55 @@ package oneDimensionalArrays;
 
 public class NumThreeO {
 
-    static int pos = 0;
-    static int nega = 0;
-    static int equa = 0;
+    static int positive = 0;
+    static int negative = 0;
+    static int zeroElement = 0;
 
+    //поиск положительных элементов
     static int positive(int[] a) {
         for (int i = 0; i < a.length; i++) {
             if (a[i] > 0) {
-                pos++;
+                positive++;
             }
         }
-        return pos;
+        return positive;
     }
 
+    //поиск отрицательных элементов
     static int negative(int[] a) {
         for (int i = 0; i < a.length; i++) {
             if (a[i] < 0) {
-                nega++;
+                negative++;
             }
         }
-        return nega;
+        return negative;
     }
 
+    //поиск равных нуль элементов
     static int equally(int[] a) {
         for (int i = 0; i < a.length; i++) {
             if (a[i] == 0) {
-                equa++;
+                zeroElement++;
             }
         }
-        return equa;
+        return zeroElement;
     }
 
-    static void rand(int[] a) {
-        for (int i = 0; i < a.length; i++) {
-            a[i] = (int) (Math.random() * 200 - 100);
-            System.out.print(a[i] + " ");
+    //заполнение массива числами [-100, 100]
+    static void random(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 200 - 100);
+            System.out.print(array[i] + " ");
         }
     }
 
     public static void main(String[] args) {
-        DevUtil.arrLength();
-        int[] array3 = new int[DevUtil.n];
-        rand(array3);
+        DevUtil.numberInput();
+        int[] array3 = new int[DevUtil.number];
+        random(array3);
         System.out.println();
         System.out.println("Положительных чисел = " + positive(array3));
         System.out.println("Отрицательных чисел = " + negative(array3));
-        System.out.println("Равно нуль = " + equally(array3));
+        System.out.println("Равных нуль = " + equally(array3));
     }
 }

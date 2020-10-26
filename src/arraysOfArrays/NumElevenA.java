@@ -6,21 +6,21 @@ package arraysOfArrays;
 
 public class NumElevenA {
 
-    static void arraysEleven10X20(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            int x = 0;
-            for (int j = 0; j < a[i].length; j++) {
-                a[i][j] = (int) (Math.random() * 15);
-                if(a[i][j] < 10) {
-                    System.out.print(" " + a[i][j] + " ");
-                    if(a[i][j] == 5){
+    static void arraysEleven10X20(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            int x = 0; //счётчик числа 5
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = (int) (Math.random() * 15);
+                if (array[i][j] < 10) {
+                    System.out.print(" " + array[i][j] + " ");
+                    if (array[i][j] == 5) {
                         x++;
                     }
                 } else {
-                    System.out.print(a[i][j] + " ");
+                    System.out.print(array[i][j] + " ");
                 }
             }
-            if(x == 3){
+            if (x >= 3) {
                 System.out.println("Срока " + (i + 1) + " содержит" + " число 5, больше трех");
             } else {
                 System.out.println();
@@ -29,7 +29,7 @@ public class NumElevenA {
     }
 
     public static void main(String[] args) {
-        int [][]arrays11 = new int[10][20];
+        int[][] arrays11 = new int[10][20];
         arraysEleven10X20(arrays11);
     }
 }

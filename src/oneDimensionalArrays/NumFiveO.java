@@ -4,14 +4,16 @@ package oneDimensionalArrays;
 
 public class NumFiveO {
 
-    static void ran(int[] a) {
-        for (int i = 0; i < a.length; i++) {
-            a[i] = (int) (Math.random() * 200 - 100);
-            System.out.print(a[i] + " ");
+    //заполняем массив рандомными числа
+    static void random(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 20 - 10);
+            System.out.print(array[i] + " ");
         }
         System.out.println();
     }
 
+    //если a[i] > i то выводим на эклан
     static void input(int[] a) {
         for (int i = 0; i < a.length - 1; i++) {
             if (a[i] > i) {
@@ -21,9 +23,11 @@ public class NumFiveO {
     }
 
     public static void main(String[] args) {
-        DevUtil.arrLength();
-        int[] array4 = new int[DevUtil.n];
-        ran(array4);
+        DevUtil.numberInput();
+        int[] array4 = new int[DevUtil.number];
+        System.out.println("Массив:");
+        random(array4);
+        System.out.println("Числа которые больше номера элемента массива:");
         input(array4);
 
 

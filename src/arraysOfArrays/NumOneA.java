@@ -4,15 +4,15 @@ package arraysOfArrays;
 
 public class NumOneA {
 
-    static void column(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                if (j % 2 != 0) {
-                    if (a[0][j] > a[a.length - 1][j]) {
-                        if (a[i][j] < 10) {
-                            System.out.print(a[i][j] + "  ");
+    static void column(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (j % 2 != 0) { //поиск нечетных столбцов
+                    if (array[0][j] > array[array.length - 1][j]) {//сравнение 1-го и последнего числа в столбце
+                        if (array[i][j] < 10) { // для красоты вывода, вместо цифр ставим пробел
+                            System.out.print(array[i][j] + "  ");
                         } else {
-                            System.out.print(a[i][j] + " ");
+                            System.out.print(array[i][j] + " ");
                         }
                     } else {
                         System.out.print("   ");
@@ -30,7 +30,7 @@ public class NumOneA {
 
     public static void main(String[] args) {
         DevUtilArray.arraysLength();
-        int[][] arrays = new int[DevUtilArray.n][DevUtilArray.d];
+        int[][] arrays = new int[DevUtilArray.line][DevUtilArray.column];
         DevUtilArray.arraysPull(arrays);
         DevUtilArray.arraysShow(arrays);
         System.out.println("Все нечетные столбцы, у которых первый элемент больше последнего.");

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class NumEightA {
 
-    static int x, y;
+    static int numOneColumn, numTwoColumn;
 
 
     static void numberColumns() {
@@ -18,11 +18,13 @@ public class NumEightA {
         boolean bool = true;
         System.out.println("Выберите столбец 1");
         if (sc.hasNextInt()) {
-            x = sc.nextInt();
+            numOneColumn = sc.nextInt();
             System.out.println("Выберите столбец 2");
-            y = sc.nextInt();
+            numTwoColumn = sc.nextInt();
+            //проверка на ввод столбцов
             while (bool) {
-                if (x > DevUtilArray.d || x == 0 || y > DevUtilArray.d || y == 0 || x > y || x == y) {
+                if (numOneColumn > DevUtilArray.column || numOneColumn == 0 || numOneColumn > DevUtilArray.column
+                        || numTwoColumn == 0 || numOneColumn > numTwoColumn || numOneColumn == numTwoColumn) {
                     numberColumns();
                 } else {
                     bool = false;
@@ -34,13 +36,14 @@ public class NumEightA {
         }
     }
 
-    static void swapColumn(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                if (j == x - 1) {
-                    int q = a[i][x - 1];
-                    a[i][x - 1] = a[i][y - 1];
-                    a[i][y - 1] = q;
+    //смена столбцов местами
+    static void swapColumn(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (j == numOneColumn - 1) {
+                    int q = array[i][numOneColumn - 1];
+                    array[i][numOneColumn - 1] = array[i][numTwoColumn - 1];
+                    array[i][numTwoColumn - 1] = q;
                 }
             }
         }
@@ -48,11 +51,11 @@ public class NumEightA {
 
     public static void main(String[] args) {
         DevUtilArray.arraysLength();
-        int[][] array8 = new int[DevUtilArray.n][DevUtilArray.d];
+        int[][] array8 = new int[DevUtilArray.line][DevUtilArray.column];
         DevUtilArray.arraysPull(array8);
         DevUtilArray.arraysShow(array8);
-        numberColumns();
-        swapColumn(array8);
+        numberColumns();//выбираем столбцы
+        swapColumn(array8);//меняем их местами
         DevUtilArray.arraysShow(array8);
     }
 }

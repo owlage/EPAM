@@ -21,7 +21,7 @@ public class NumTwoS {
 
     public static void main(String[] args) {
         DevUtilSorting.arrayLength();
-        int [] array2 = new int[DevUtilSorting.a];
+        int[] array2 = new int[DevUtilSorting.numberOne];
         DevUtilSorting.arrayPull(array2);
         DevUtilSorting.arrayShow(array2);
         sort(array2);

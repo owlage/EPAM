@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class DevUtilSorting {
 
-    static int a,b;
+    static int numberOne, numberTwo;
 
-    static int arrayLength(){
+    //проверка ввода
+    static int arrayLength() {
         System.out.println("Введите длинну массива");
         Scanner sc = new Scanner(System.in);
-        if(sc.hasNextInt()) {
-            a = sc.nextInt();
-            if(a < 2){
+        if (sc.hasNextInt()) {
+            numberOne = sc.nextInt();
+            if (numberOne < 2) {
                 System.out.println("Введите число больше чем 2");
                 arrayLength();
             }
@@ -19,15 +20,16 @@ public class DevUtilSorting {
             System.out.println("Введите целое число");
             arrayLength();
         }
-        return a;
+        return numberOne;
     }
 
-    static void naturalNumber(){
+    //проверка ввода
+    static void naturalNumber() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите натуральное число");
-        if(sc.hasNextInt()) {
-            b = sc.nextInt();
-            if(b < 1){
+        if (sc.hasNextInt()) {
+            numberTwo = sc.nextInt();
+            if (numberTwo < 1) {
                 System.out.println("Введите число больше чем 1");
                 arrayLength();
             }
@@ -37,16 +39,18 @@ public class DevUtilSorting {
         }
     }
 
-    static void arrayPull(int []z){
-        for (int i = 0; i < z.length; i++) {
-            z[i] = (int) (Math.random() * 20);
+    //заполнение массива
+    static void arrayPull(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 20);
         }
     }
 
-    static void arrayShow(int []z){
+    //отобразить массив
+    static void arrayShow(int[] array) {
         System.out.println("Массив");
-        for (int i = 0; i < z.length; i++) {
-            System.out.print(z[i] + " ");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
         System.out.println();
     }

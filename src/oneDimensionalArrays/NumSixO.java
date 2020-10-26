@@ -5,22 +5,22 @@ package oneDimensionalArrays;
 
 public class NumSixO {
 
-    static void rand(int[] a) {
-        for (int i = 0; i < a.length; i++) {
-            a[i] = (int) (Math.random() * 50 + 1);
-            System.out.print(a[i] + " ");
+    static void random(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 50 + 1);
+            System.out.print(array[i] + " ");
         }
         System.out.println();
     }
 
-    static int summa(int[] a) {
+    static int summa(int[] array) {
         int sum = 0;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 2; j <= a[i] / 2; j++) {
-                if (a[i] % j == 0) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 2; j <= array[i] / 2; j++) {
+                if (array[i] % j == 0) {
                     break;
-                } else if (j == a[i] / 2) {
-                    sum += a[i];
+                } else if (j == array[i] / 2) {
+                    sum += array[i];
                 }
             }
 
@@ -29,9 +29,9 @@ public class NumSixO {
     }
 
     public static void main(String[] args) {
-        DevUtil.arrLength();
-        int[] array6 = new int[DevUtil.n];
-        rand(array6);
+        DevUtil.numberInput();
+        int[] array6 = new int[DevUtil.number];
+        random(array6);
         System.out.println();
         System.out.println("Сумма простых чисел = " + summa(array6));
     }

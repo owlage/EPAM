@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class NumberSevenC {
 
-    static int num;
     static int a;
     static int b;
 
@@ -18,8 +17,6 @@ public class NumberSevenC {
             a = sc.nextInt();
             if (sc.hasNextInt()) {
                 b = sc.nextInt();
-                //num = (int) Math.log10(a) + 1;
-                //num = (int) Math.log10(b) + 1;
             } else {
                 System.out.println("Введите целые числа!");
                 number();

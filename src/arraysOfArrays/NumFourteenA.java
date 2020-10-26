@@ -6,17 +6,19 @@ package arraysOfArrays;
 
 public class NumFourteenA {
 
-    static void zeroAndOne(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                if (i == j) {
-                    for (int k = j; k < a[i].length; k++) {
-                        a[i][k] = 1;
-                        System.out.print(a[i][k] + " ");
+    static void zeroAndOne(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (i == j) { //находим диагональ матрицы и от нее запоняем строку "1"
+                    for (int k = j; k < array[i].length; k++) {
+                        array[i][k] = 1;
+                        System.out.print(array[i][k] + " ");
                     }
-                    j = a[i].length; // если убрать строку?
+                    // если убрать строку,идет переполнение массива, не совсем понимаю почему так происходит
+                    //но эта строка решает проблему, не помню как дошел до этого
+                    j = array[i].length;
                 } else {
-                    System.out.print(a[i][j] + " ");
+                    System.out.print(array[i][j] + " ");
                 }
             }
             System.out.println();
@@ -25,7 +27,7 @@ public class NumFourteenA {
 
     public static void main(String[] args) {
         DevUtilArray.arraysLength();
-        int[][] array10 = new int[DevUtilArray.n][DevUtilArray.d];
+        int[][] array10 = new int[DevUtilArray.line][DevUtilArray.column];
         zeroAndOne(array10);
     }
 }

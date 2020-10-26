@@ -6,24 +6,24 @@ public class NumFifteenA {
 
     static int max;
 
-    static void maxDefine(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a.length; j++) {
-                for (int k = 0; k < a[i].length; k++) {
-                    if (a[j][k] > max) {
-                        max = a[j][k];
-                    }
+    //поиск макс числа в матрице
+    static void maxDefine(int[][] array) {
+        for (int j = 0; j < array.length; j++) {
+            for (int k = 0; k < array[j].length; k++) {
+                if (array[j][k] > max) {//
+                    max = array[j][k];
                 }
             }
         }
         System.out.println("Максимальное число в массиве = " + max);
     }
 
-    static void maxInsteadNotEven(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                if (a[i][j] % 2 != 0) {
-                    a[i][j] = max;
+    //проверка на нечетное число
+    static void maxInsteadNotEven(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] % 2 != 0) {//если елемент массива нечет, меняем его на макс
+                    array[i][j] = max;
                 }
             }
         }
@@ -31,12 +31,12 @@ public class NumFifteenA {
 
 
     public static void main(String[] args) {
-        DevUtilArray.arraysLength();
-        int[][] array15 = new int[DevUtilArray.n][DevUtilArray.d];
-        DevUtilArray.arraysPull(array15);
-        DevUtilArray.arraysShow(array15);
-        maxDefine(array15);
-        maxInsteadNotEven(array15);
+        DevUtilArray.arraysLength();//определяем размер матрицы
+        int[][] array15 = new int[DevUtilArray.line][DevUtilArray.column];
+        DevUtilArray.arraysPull(array15);//заполняем матрицу
+        DevUtilArray.arraysShow(array15);//отобразить матрицу
+        maxDefine(array15);//поиск макс числа в матрице
+        maxInsteadNotEven(array15);//свап нечет чисел на макс число
         DevUtilArray.arraysShow(array15);
     }
 }

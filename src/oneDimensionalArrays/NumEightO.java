@@ -20,7 +20,7 @@ public class NumEightO {
     }
 
     public static void main(String[] args) {
-        DevUtil.arrLength();
+        DevUtil.numberInput();
         int[] array8 = new int[DevUtil.n];
         NumSixO.rand(array8);
         int[] array85 = new int[array8.length / 2];
@@ -33,19 +33,57 @@ public class NumEightO {
      */
 
     // нахождение минимального числа в масиве и занесение его в новый
-    public static void main(String[] args) {
-        DevUtil.arrLength();
-        int[] array8 = new int[DevUtil.n];
-        NumSixO.rand(array8);
-        int[] array85 = new int[1];
-        int min = array8[0];
-        for (int i = 0; i < array8.length; i++) {
-            if (min > array8[i]) {
-                min = array8[i];
+
+    static void random(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) (Math.random() * 50 + 1);
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+
+    //поиск минимального элемента массива
+    static int minNumber(int[] array) {
+        int min = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (min > array[i]) {
+                min = array[i];
             }
         }
-        array85[0] = min;
-        System.out.println(array85[0]);
+        return min;
+    }
+
+    //сколько элементов в массиве равных минимальному элементу, создать новый массив array8.length - min * кол-во равных
+    static int woundedMin(int[] array) {
+        int counter = 0; // счётчик
+        int min = minNumber(array); // минимальный элемент массива
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == min) {
+                counter++;
+            }
+        }
+        return counter;
+    }
+
+    //создаем новый массив из старого не содержашего равных мин элементу
+    static void fillInNewArray(int[] arrayFull, int[] newArray, int min) {
+        int j = 0;
+        for (int i = 0; i < arrayFull.length; i++) {
+            if (arrayFull[i] != min) {
+                newArray[j++] = arrayFull[i];
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        DevUtil.numberInput();
+        int[] array8 = new int[DevUtil.number];
+        System.out.println("Массив:");
+        random(array8);
+        int[] arrayNew = new int[array8.length - woundedMin(array8)];
+        fillInNewArray(array8, arrayNew, minNumber(array8));
+        System.out.println("Новый массив без минимального элемента: ");
+        DevUtil.arrayShow(arrayNew);
 
     }
 }

@@ -4,23 +4,24 @@ package sorting;
 
 public class NumFourS {
 
-    static void sortByInserts(int []a) {
-        for (int i = 1; i < a.length; i++) {
-            int value = a[i];
+    static void sortByInserts(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int value = array[i];
             int z = i - 1;
-            while (z >= 0 && a[z] > value) {
-                a[z + 1] = a[z];
+            while (z >= 0 && array[z] > value) {
+                array[z + 1] = array[z];
                 z--;
             }
-            a[z + 1] = value;
+            array[z + 1] = value;
         }
     }
+
     public static void main(String[] args) {
-        DevUtilSorting.arrayLength();
-        int [] array2 = new int[DevUtilSorting.a];
-        DevUtilSorting.arrayPull(array2);
-        DevUtilSorting.arrayShow(array2);
-        sortByInserts(array2);
-        DevUtilSorting.arrayShow(array2);
+        DevUtilSorting.arrayLength();//ввод длинны массива
+        int[] array2 = new int[DevUtilSorting.numberOne];
+        DevUtilSorting.arrayPull(array2);//заполнение массива
+        DevUtilSorting.arrayShow(array2);//отобразить массив
+        sortByInserts(array2);//сортировка
+        DevUtilSorting.arrayShow(array2);//отобразить массив
     }
 }

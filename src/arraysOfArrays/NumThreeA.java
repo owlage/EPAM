@@ -14,7 +14,7 @@ public class NumThreeA {
         System.out.println("Введите строку:");
         if (sc.hasNextInt()) {
             k = sc.nextInt();
-            if (k > DevUtilArray.n) {
+            if (k > DevUtilArray.line) {
                 System.out.println("Вы превысили массив!");
                 numberLine();
             }
@@ -29,7 +29,7 @@ public class NumThreeA {
         System.out.println("Введите столбец:");
         if (sc.hasNextInt()) {
             p = sc.nextInt();
-            if (p > DevUtilArray.n) {
+            if (p > DevUtilArray.line) {
                 System.out.println("Вы превысили массив!");
                 numberLine();
             }
@@ -58,7 +58,7 @@ public class NumThreeA {
 
     public static void main(String[] args) {
         DevUtilArray.arraysLength();
-        int[][] array3 = new int[DevUtilArray.n][DevUtilArray.d];
+        int[][] array3 = new int[DevUtilArray.line][DevUtilArray.column];
         DevUtilArray.arraysPull(array3);
         DevUtilArray.arraysShow(array3);
         numberLine();

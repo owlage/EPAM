@@ -16,7 +16,7 @@ public class NumOneO {
             if (sc.hasNextInt()) {
                 k = sc.nextInt();
                 bool = false;
-                if( k == 0){
+                if (k == 0) {
                     System.out.println("Не нуль!");
                     number();
                 }
@@ -26,21 +26,22 @@ public class NumOneO {
             }
     }
 
-    static void multiplicity(int[] a) {
+    //находим числа кратные введеному числу 'k' и определяем их сумму
+    static void multiplicity(int[] array) {
         int sum = 0;
-        for (int i = 0; i <= a.length - 1; i++) {
-            if (a[i] % k == 0) {
-                sum += a[i];
+        for (int i = 0; i <= array.length - 1; i++) {
+            if (array[i] % k == 0) {
+                sum += array[i];
             }
         }
         System.out.print("Сумма = " + sum);
     }
 
     public static void main(String[] args) {
-        DevUtil.arrLength();
-        number();
-        int[] arrays = new int[DevUtil.n];
-        DevUtil.arrayPull(arrays);
+        DevUtil.numberInput();//вводим длинну массива
+        number(); //вводим кратное число
+        int[] arrays = new int[DevUtil.number]; //number - статическая переменая из класса DevUtil
+        DevUtil.arrayFillIn(arrays); // выводим заполненый массив
         multiplicity(arrays);
     }
 }

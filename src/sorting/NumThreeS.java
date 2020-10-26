@@ -4,24 +4,24 @@ package sorting;
 
 public class NumThreeS {
 
-    static void bubbleSort(int []a){
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a.length - 1; j++) {
-                if(a[j] > a[j + 1]){
-                    int temp = a[j + 1];
-                    a[j + 1] = a[j];
-                    a[j] = temp;
+    static void bubbleSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length - 1; j++) {
+                if (array[j] > array[j + 1]) {//если 1-й елемент массива больше чем 2-ой то меняем их местами
+                    int temp = array[j + 1];
+                    array[j + 1] = array[j];
+                    array[j] = temp;
                 }
             }
         }
     }
 
     public static void main(String[] args) {
-        DevUtilSorting.arrayLength();
-        int [] array3 = new int[DevUtilSorting.a];
-        DevUtilSorting.arrayPull(array3);
-        DevUtilSorting.arrayShow(array3);
-        bubbleSort(array3);
-        DevUtilSorting.arrayShow(array3);
+        DevUtilSorting.arrayLength();//длинна массива
+        int[] array3 = new int[DevUtilSorting.numberOne];
+        DevUtilSorting.arrayPull(array3);//заполнение массива
+        DevUtilSorting.arrayShow(array3);//отображение
+        bubbleSort(array3);//сортировка
+        DevUtilSorting.arrayShow(array3);//отображение
     }
 }

@@ -5,32 +5,37 @@ package oneDimensionalArrays;
 
 public class NumTenO {
 
-    static int[] a3;
-    static int[] a1;
+    static int[] array1;
+    static int[] array2;
 
-    static void sort(int[] a) {
-        if (a.length % 2 == 0) {
-            a1 = new int[a.length / 2];
+    static void sort(int[] arr) {
+        //узнаем длинну и создаем новый массив
+        if (arr.length % 2 == 0) {
+            array1 = new int[arr.length / 2];
         } else {
-            a1 = new int[a.length / 2 + 1];
+            array1 = new int[arr.length / 2 + 1];
         }
+        //заполняем новый массив пропуская каждый второй элемент из заданного массива
         int j = 0;
-        for (int i = 0; i <= a1.length - 1; i++) {
-            a1[i] = a[j];
+        for (int i = 0; i <= array1.length - 1; i++) {
+            array1[i] = arr[j];
             j += 2;
         }
-        a3 = new int[a.length];
-        for (int i = 0; i < a3.length; i += 2) {
-            a3[i] = a[i];
+        //свободные элементы заполняем нулями
+        array2 = new int[arr.length];
+        for (int i = 0; i < array2.length; i += 2) {
+            array2[i] = arr[i];
         }
     }
 
     public static void main(String[] args) {
-        DevUtil.arrLength();
-        int[] array10 = new int[DevUtil.n];
-        DevUtil.arrayPull(array10);
+        DevUtil.numberInput();
+        int[] array10 = new int[DevUtil.number];
+        DevUtil.arrayFillIn(array10);
         sort(array10);
-        DevUtil.output(a1);
-        DevUtil.output(a3);
+        System.out.println("Массив без каждого воторого элемента первоначального массива: ");
+        DevUtil.arrayShow(array1);
+        System.out.println("Новый массив:");
+        DevUtil.arrayShow(array2);
     }
 }

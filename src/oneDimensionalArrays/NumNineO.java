@@ -3,9 +3,10 @@ package oneDimensionalArrays;
 //9. В массиве целых чисел с количеством элементов n найти наиболее часто встречающееся число.
 // Если таких чисел несколько, то определить наименьшее из них.
 
-public class NumNineO{
+public class NumNineO {
 
     static void rand20(int[] a) {
+        System.out.println("Массив:");
         for (int i = 0; i < a.length; i++) {
             a[i] = (int) (Math.random() * 20 + 1);
             System.out.print(a[i] + " ");
@@ -14,36 +15,35 @@ public class NumNineO{
     }
 
 
-    static int getNumber(int[] a) {
-        int[] arr = new int[a.length];
-
-        for (int i = 0; i < a.length; i++) {
+    static int getNumber(int[] array) {
+        int[] arrayCoincidences = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
             int z = 0;
-            for (int k : a) {
-                if (a[i] == k) {
-                    arr[i] = z++;
+            //проходим по массиву в поиске кол-ва совпадений и сохраняем данные в новый массив
+            for (int k : array) {
+                if (array[i] == k) {
+                    arrayCoincidences[i] = z++;
                 }
             }
         }
-        int numberArr = arr[0];
-        int minNumber = a[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > numberArr) {  //проверка на кол-во совпадений
-                numberArr = arr[i];
-                minNumber = a[i];
-                System.out.print(minNumber + " ");
+        int numberOfMatches = arrayCoincidences[0];
+        int moreCommon = array[0];
+        for (int i = 0; i < arrayCoincidences.length; i++) {
+            if (arrayCoincidences[i] > numberOfMatches) {  //проверка на кол-во совпадений
+                numberOfMatches = arrayCoincidences[i];
+                moreCommon = array[i];
             }
-            if (arr[i] == numberArr && a[i] < minNumber) { // нахождение минимального числа
-                minNumber = a[i];
+            if (arrayCoincidences[i] == numberOfMatches && array[i] < moreCommon) { // нахождение минимального числа
+                moreCommon = array[i];
             }
         }
-        return minNumber;
+        return moreCommon;
     }
 
     public static void main(String[] args) {
-        DevUtil.arrLength();
-        int[] array9 = new int[DevUtil.n];
+        DevUtil.numberInput();
+        int[] array9 = new int[DevUtil.number];
         rand20(array9);
-        System.out.println(getNumber(array9));
+        System.out.println("Минимальное из самых встречаемых числе: " + getNumber(array9));
     }
 }
