@@ -57,7 +57,7 @@ public class NumFourA {
     public static void main(String[] argv) {
 
         newArrayCubeLength();
-        int[][] array4 = new int[DevUtilArray.line][DevUtilArray.column];
+        int[][] array4 = new int[DevUtilArray.line][DevUtilArray.line];
         newArrayCube(array4);
         arraysShow(array4);
 
