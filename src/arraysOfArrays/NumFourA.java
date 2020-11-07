@@ -44,14 +44,15 @@ public class NumFourA {
     }
 
 
-    static void arraysShow(int[][] a) {
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 0; j < a[i].length; j++) {
-                System.out.print(a[i][j] + " ");
+    static void arraysShow(int[][] array) {
+        for (int[] doubles : array) {
+            for (int aDouble : doubles) {
+                System.out.print(aDouble + " ");
             }
             System.out.println();
         }
     }
+
 
     public static void main(String[] argv) {
 

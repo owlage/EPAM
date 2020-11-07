@@ -23,8 +23,8 @@ public class NumEightA {
             numTwoColumn = sc.nextInt();
             //проверка на ввод столбцов
             while (bool) {
-                if (numOneColumn > DevUtilArray.column || numOneColumn == 0 || numOneColumn > DevUtilArray.column
-                        || numTwoColumn == 0 || numOneColumn > numTwoColumn || numOneColumn == numTwoColumn) {
+                if (numOneColumn > DevUtilArray.column || numOneColumn == 0 || numTwoColumn > DevUtilArray.column
+                        || numTwoColumn == 0 || numOneColumn == numTwoColumn) {
                     numberColumns();
                 } else {
                     bool = false;

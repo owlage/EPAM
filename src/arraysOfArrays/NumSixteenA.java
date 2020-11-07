@@ -5,20 +5,16 @@ package arraysOfArrays;
 такой квадрат.
  */
 
-/*
-
- */
-
 import java.util.Scanner;
 
 public class NumSixteenA {
 
     static void magicCube() {
-        System.out.println("Введите число для создания массива:");
+        System.out.println("Введите нечетное число для создания массива:");
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextInt()) {
             DevUtilArray.line = sc.nextInt();
-            if (DevUtilArray.line < 2) {
+            if (DevUtilArray.line < 2 || DevUtilArray.line % 2 == 0) {
                 magicCube();
             }
         } else {
@@ -67,6 +63,5 @@ public class NumSixteenA {
             }
             System.out.println();
         }
-        DevUtilArray.arraysShow(magicSquare);
     }
 }

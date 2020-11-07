@@ -4,6 +4,8 @@ package arraysOfArrays;
 и подсчитать количество положительных элементов в ней.
  */
 
+import java.text.DecimalFormat;
+
 public class NumSevenA {
 
     static int matrixForm(double[][] array) {
@@ -20,9 +22,15 @@ public class NumSevenA {
     }
 
     static void showDoubleArray(double[][] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                System.out.print(array[i][j] + " ");
+        DecimalFormat dF = new DecimalFormat( "#.##" );
+        for (double[] doubles : array) {
+            for (double aDouble : doubles) {
+                if(aDouble < 0) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("  ");
+                }
+                System.out.format("%.2f",aDouble);
             }
             System.out.println();
         }

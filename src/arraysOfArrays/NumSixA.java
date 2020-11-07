@@ -2,6 +2,8 @@ package arraysOfArrays;
 
 //6. Сформировать квадратную матрицу порядка n по заданному образцу(n - четное):
 
+import java.util.Scanner;
+
 public class NumSixA {
 
     static void newArray6(int[][] array) {
@@ -17,8 +19,25 @@ public class NumSixA {
         }
     }
 
+    static void newArrayCubeLength() {
+        System.out.println("Введите число для создания массива:");
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextInt()) {
+            DevUtilArray.line = sc.nextInt();
+            if (DevUtilArray.line % 2 != 0) { //проверка на n - чётное
+                newArrayCubeLength();
+                if (DevUtilArray.line < 2) {
+                    newArrayCubeLength();
+                }
+            }
+        } else {
+            System.out.println("Введите число");
+            newArrayCubeLength();
+        }
+    }
+
     public static void main(String[] args) {
-        NumFourA.newArrayCubeLength();
+        newArrayCubeLength();
         int[][] array6 = new int[DevUtilArray.line][DevUtilArray.line];
         newArray6(array6);
         DevUtilArray.arraysShow(array6);
