@@ -50,10 +50,10 @@ public class NumSixteenD {
     //определение кол-во чётных цифр в сумме
     static int numberOfEven(long number) {
         int even = 0;
-        int numberForOperations;
+        long numberForOperations;
         int x = lengthOfNumber((int) number); // в 'х' храним длинну передаваемого числа
         for (int i = 1; i <= x; i++) {
-            numberForOperations = (int) number;
+            numberForOperations = number;
             numberForOperations %= 10;
             number /= 10;
             if (numberForOperations % 2 == 0) {

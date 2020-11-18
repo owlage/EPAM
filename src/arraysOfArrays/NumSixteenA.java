@@ -14,7 +14,7 @@ public class NumSixteenA {
         Scanner sc = new Scanner(System.in);
         if (sc.hasNextInt()) {
             DevUtilArray.line = sc.nextInt();
-            if (DevUtilArray.line < 2 || DevUtilArray.line % 2 == 0) {
+            if (DevUtilArray.line < 2) {
                 magicCube();
             }
         } else {
@@ -36,20 +36,25 @@ public class NumSixteenA {
             number++;
             curr_row = row;
             curr_col = column;
-            row -= 1;
-            column += 1;
             if (row == -1) {
                 row = DevUtilArray.line - 1;
             }
-            if (column == DevUtilArray.line) {
-                column = 0;
-            }
             if (magicSquare[row][column] != 0) {
-                row = curr_row + 1;
+                if (row == DevUtilArray.line - 1){
+                    row = DevUtilArray.line - 1;
+                } else {
+                    row = curr_row + 1;
+                }
                 column = curr_col;
                 if (row == -1) {
                     row = DevUtilArray.line - 1;
                 }
+            } else {
+                row -= 1;
+                column += 1;
+            }
+            if (column == DevUtilArray.line) {
+                column = 0;
             }
         }
 

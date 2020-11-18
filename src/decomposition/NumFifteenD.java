@@ -59,8 +59,6 @@ public class NumFifteenD {
             if (arr[i] < arr[i + 1] && arr[i + 1] < arr[i + 2] && arr[i + 2] < arr[i + 3]) {
                 System.out.println("Числа образующие возрастающую последовательность " + arr[i] + "" + arr[i + 1] +
                         "" + arr[i + 2] + "" + arr[i + 3]);
-            } else {
-                System.out.println("Нет цифр образующие возрастающую последовательность.");
             }
         }
     }

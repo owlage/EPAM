@@ -35,15 +35,15 @@ public class NumFourD {
         dot1 = ch++;
         x1 = numberInputDouble();
         y1 = numberInputDouble();
-        System.out.println("Ввудите коордитаты точки " + ch);
+        System.out.println("Введите коордитаты точки " + ch);
         dot2 = ch++;
         x2 = numberInputDouble();
         y2 = numberInputDouble();
-        System.out.println("Ввудите коордитаты точки " + ch);
+        System.out.println("Введите коордитаты точки " + ch);
         dot3 = ch++;
         x3 = numberInputDouble();
         y3 = numberInputDouble();
-        System.out.println("Ввудите коордитаты точки " + ch);
+        System.out.println("Введите коордитаты точки " + ch);
         dot4 = ch++;
         x4 = numberInputDouble();
         y4 = numberInputDouble();
